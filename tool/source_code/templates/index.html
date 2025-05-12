@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brute Force Attack Simulator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>🔒 Brute Force Attack Simulator</h1>
+        <form action="/start_attack" method="POST" target="_blank">
+            <label for="password">Enter Password to Crack (1 to 4 characters):</label>
+            <input type="text" id="password" name="password" maxlength="4" required placeholder="Password" autofocus>
+            <button type="submit">Start Attack</button>
+        </form>
+    </div>
+</body>
+</html>

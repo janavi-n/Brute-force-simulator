@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>All Guesses</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>📝 Guesses for "{{ password }}"</h1>
+        <p><strong>Total Attempts:</strong> {{ attempts }}</p>
+        <p><strong>Time Taken:</strong> {{ time_taken }} seconds</p>
+        <ul>
+            {% for guess in guesses %}
+                <li>{{ guess }}</li>
+            {% endfor %}
+        </ul>
+
+        <div class="pagination">
+            {% if page > 1 %}
+                <a href="{{ url_for('guesses', page=page-1) }}">❮ Previous</a>
+            {% endif %}
+
+            <span>Page {{ page }} of {{ total_pages }}</span>
+
+            {% if page < total_pages %}
+                <a href="{{ url_for('guesses', page=page+1) }}">Next ❯</a>
+            {% endif %}
+        </div>
+
+        <a href="/">🔁 Try another password</a>
+    </div>
+</body>
+</html>
